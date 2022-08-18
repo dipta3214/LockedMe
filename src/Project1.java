@@ -22,15 +22,25 @@ public class Project1 {
 		System.out.println("======================================================================================");
 		System.out.println(" 1. Show files in an ascending order \n 2. Business-level Operations \n 3. Close the application \n ");
 		
-		Scanner sc = new Scanner(System.in);
-		int operation = sc.nextInt();
-		
-		if(operation == 1) {
-			showFiles();
-		}else if(operation == 2) {
-			businessOperations();
-		}else if(operation == 3) {
-			System.out.println("Closing application");
+		try {
+			Scanner sc = new Scanner(System.in);
+			int operation = sc.nextInt();
+			
+			if(operation == 1) {
+				showFiles();
+			}else if(operation == 2) {
+				businessOperations();
+			}else if(operation == 3) {
+				System.out.println("\nClosing application.... \nHave a nice day!!!");
+				System.exit(0);
+			}else {
+				System.out.println("Wrong input!!! \n");
+				primaryOperations();
+			}
+		}
+		catch(Exception e) {
+			System.out.println("Invalid input type");
+			primaryOperations();
 		}
 	}
 	
@@ -59,7 +69,7 @@ public class Project1 {
 			}else {
 				System.out.println("Wrong input!!!");
 				System.out.println("Redirecting you to main menu \n");
-				primaryOperations();
+				businessOperations();
 			}
 		}
 		catch(Exception e) {
