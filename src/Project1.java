@@ -17,20 +17,55 @@ public class Project1 {
 		System.out.println("This is Abidur a Software Engineer!");
 	}
 	
+	public static void primaryOperations() {
+		System.out.println("Which operation you want to choose? ");
+		System.out.println("======================================================================================");
+		System.out.println(" 1. Show files in an ascending order \n 2. Business-level Operations \n 3. Close the application \n ");
+		
+		Scanner sc = new Scanner(System.in);
+		int operation = sc.nextInt();
+		
+		if(operation == 1) {
+			showFiles();
+		}else if(operation == 2) {
+			businessOperations();
+		}else if(operation == 3) {
+			System.out.println("Closing application");
+		}
+	}
+	
+	public static void showFiles() {
+		
+	}
+	
 	public static void businessOperations() {
 		
 		System.out.println("Which operation you want to choose? ");
 		System.out.println("======================================================================================");
 		System.out.println(" 1. Create a new File \n 2. Delete a file \n 3. Search for a file \n 4. Go back to main menu");
-		Scanner sc = new Scanner(System.in);
-		int operation = sc.nextInt();
 		
-		if(operation == 1) {
-			addFile();
-		}else if(operation == 2) {
-			deleteFile();
-		}else if(operation == 3) {
-			searchFile();
+		
+		try {
+			Scanner sc = new Scanner(System.in);
+			int operation = sc.nextInt();
+			if(operation == 1) {
+				addFile();
+			}else if(operation == 2) {
+				deleteFile();
+			}else if(operation == 3) {
+				searchFile();
+			}else if(operation == 4) {
+				primaryOperations();
+			}else {
+				System.out.println("Wrong input!!!");
+				System.out.println("Redirecting you to main menu \n");
+				primaryOperations();
+			}
+		}
+		catch(Exception e) {
+			System.out.println("Invalid input type");
+			System.out.println("Redirecting you back to main menu \n");
+			primaryOperations();
 		}
 	}
 	
@@ -92,6 +127,6 @@ public class Project1 {
 	
 	public static void main(String[] args) {
 		welcomeScreen();
-		businessOperations();
+		primaryOperations();
 	}
 }
