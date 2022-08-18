@@ -91,9 +91,8 @@ public class Project1 {
 			}
 		}
 		catch(Exception e) {
-			System.out.println("Invalid input type");
-			System.out.println("Redirecting you back to main menu \n");
-			primaryOperations();
+			System.out.println("Invalid input type\n");
+			businessOperations();
 		}
 	}
 	
