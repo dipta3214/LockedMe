@@ -5,7 +5,9 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.*;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 
@@ -45,7 +47,23 @@ public class Project1 {
 	}
 	
 	public static void showFiles() {
+		File folder = new File("C://lockedMe");
+		if(folder.exists() == false) {
+			folder.mkdir();
+		}
 		
+		String[] listOfFiles = folder.list();
+		
+		ArrayList<String> fileList = new ArrayList<String>(Arrays.asList(listOfFiles));
+		Collections.sort(fileList);
+		
+		System.out.println("Showing files in an ascending order \n");
+		for(String file: fileList){
+			System.out.println(file);
+		}
+		
+		System.out.println();
+		primaryOperations();
 	}
 	
 	public static void businessOperations() {
