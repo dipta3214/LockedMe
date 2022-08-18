@@ -51,13 +51,24 @@ public class Project1 {
         { 
             System.out.println("Invalid permissions."); 
         } 
-          
-        
 
+	}
+	
+	public static void searchFile() {
+		System.out.println("Enter file name: ");
+		Scanner sc = new Scanner(System.in);
+		String fileScanner = sc.next();
+		
+		if(Files.exists(Paths.get("C://lockedMe//" + fileScanner)) == true) {
+			System.out.println("Found " + fileScanner);
+		}else {
+			System.out.println("File not found");
+		}
 	}
 	
 	public static void main(String[] args) {
 		addFile();
 		deleteFile();
+		searchFile();
 	}
 }
