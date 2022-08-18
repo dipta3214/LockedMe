@@ -16,7 +16,7 @@ public class Project1 {
 	public static void welcomeScreen() {
 		System.out.println("Welcome to LockedMe.com!");
 		System.out.println("===================================================");
-		System.out.println("This is Abidur a Software Engineer!");
+		System.out.println("This is Abidur a Software Engineer! \n");
 	}
 	
 	public static void primaryOperations() {
@@ -33,15 +33,15 @@ public class Project1 {
 			}else if(operation == 2) {
 				businessOperations();
 			}else if(operation == 3) {
-				System.out.println("\nClosing application.... \nHave a nice day!!!");
+				System.out.println("\nClosing application... \nHave a nice day!!!");
 				System.exit(0);
 			}else {
-				System.out.println("Wrong input!!! \n");
+				System.out.println("Wrong input!!! \nPlease choose from 1-3\n");
 				primaryOperations();
 			}
 		}
 		catch(Exception e) {
-			System.out.println("Invalid input type");
+			System.out.println("Invalid input type \nPlease choose from 1-3\n");
 			primaryOperations();
 		}
 	}
@@ -55,12 +55,17 @@ public class Project1 {
 		String[] listOfFiles = folder.list();
 		
 		ArrayList<String> fileList = new ArrayList<String>(Arrays.asList(listOfFiles));
-		Collections.sort(fileList);
-		
-		System.out.println("Showing files in an ascending order \n");
-		for(String file: fileList){
-			System.out.println(file);
+		if(fileList.size() == 0) {
+			System.out.println("Folder is empty");
+		}else {
+			Collections.sort(fileList);
+			
+			System.out.println("Showing files in an ascending order \n");
+			for(String file: fileList){
+				System.out.println(file);
+			}
 		}
+		
 		
 		System.out.println();
 		primaryOperations();
@@ -85,13 +90,12 @@ public class Project1 {
 			}else if(operation == 4) {
 				primaryOperations();
 			}else {
-				System.out.println("Wrong input!!!");
-				System.out.println("Redirecting you to main menu \n");
+				System.out.println("Wrong input!!! \nPlease choose from 1-4\n");
 				businessOperations();
 			}
 		}
 		catch(Exception e) {
-			System.out.println("Invalid input type\n");
+			System.out.println("Invalid input type \nChoose from 1-4\n");
 			businessOperations();
 		}
 	}
@@ -144,8 +148,10 @@ public class Project1 {
 		Scanner sc = new Scanner(System.in);
 		String fileScanner = sc.next();
 		
+		File file = new File("C://lockedMe//" + fileScanner);
+		
 		if(Files.exists(Paths.get("C://lockedMe//" + fileScanner)) == true) {
-			System.out.println("Found " + fileScanner + "\n");
+			System.out.println("Found " + fileScanner + "\nPath to file: " + file.getAbsolutePath() + "\n");
 		}else {
 			System.out.println("File not found \n");
 		}
