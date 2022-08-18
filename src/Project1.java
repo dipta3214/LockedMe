@@ -11,6 +11,23 @@ import java.util.List;
 
 public class Project1 {
 	
+	public static void businessOperations() {
+		
+		System.out.println("Which operation you want to choose? ");
+		System.out.println("======================================================================================");
+		System.out.println(" 1. Create a new File \n 2. Delete a file \n 3. Search for a file \n 4. Go back to main menu");
+		Scanner sc = new Scanner(System.in);
+		int operation = sc.nextInt();
+		
+		if(operation == 1) {
+			addFile();
+		}else if(operation == 2) {
+			deleteFile();
+		}else if(operation == 3) {
+			searchFile();
+		}
+	}
+	
 	public static void addFile()  {
 		
 		File folder = new File("C://lockedMe");
@@ -24,15 +41,15 @@ public class Project1 {
 		
 		try {
 			if(fileName.createNewFile()) {
-				System.out.println("File created successfully");
+				System.out.println("File created successfully \n");
 			}else {
-				System.out.println("File already exists!");
+				System.out.println("File already exists! \n");
 			}
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+		businessOperations();
 	}
 	
 	public static void deleteFile() {
@@ -42,16 +59,16 @@ public class Project1 {
 		
 		try {
 			if(Files.deleteIfExists(Paths.get("C://lockedMe//" + fileScanner))) {
-				System.out.println("File deleted successfully!");
+				System.out.println("File deleted successfully! \n");
 			}else {
-				System.out.println("File not found!");
+				System.out.println("File not found! \n");
 			}
 		} 
         catch(IOException e) 
         { 
             System.out.println("Invalid permissions."); 
         } 
-
+		businessOperations();
 	}
 	
 	public static void searchFile() {
@@ -60,15 +77,14 @@ public class Project1 {
 		String fileScanner = sc.next();
 		
 		if(Files.exists(Paths.get("C://lockedMe//" + fileScanner)) == true) {
-			System.out.println("Found " + fileScanner);
+			System.out.println("Found " + fileScanner + "\n");
 		}else {
-			System.out.println("File not found");
+			System.out.println("File not found \n");
 		}
+		businessOperations();
 	}
 	
 	public static void main(String[] args) {
-		addFile();
-		deleteFile();
-		searchFile();
+		businessOperations();
 	}
 }
