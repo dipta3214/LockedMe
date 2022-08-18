@@ -11,6 +11,12 @@ import java.util.List;
 
 public class Project1 {
 	
+	public static void welcomeScreen() {
+		System.out.println("Welcome to LockedMe.com!");
+		System.out.println("===================================================");
+		System.out.println("This is Abidur a Software Engineer!");
+	}
+	
 	public static void businessOperations() {
 		
 		System.out.println("Which operation you want to choose? ");
@@ -85,6 +91,7 @@ public class Project1 {
 	}
 	
 	public static void main(String[] args) {
+		welcomeScreen();
 		businessOperations();
 	}
 }
