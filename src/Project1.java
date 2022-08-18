@@ -4,9 +4,7 @@ import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.nio.file.StandardOpenOption;
+import java.nio.file.*;
 import java.util.Arrays;
 import java.util.List;
 
@@ -37,7 +35,29 @@ public class Project1 {
 		
 	}
 	
+	public static void deleteFile() {
+		System.out.println("Enter file name: ");
+		Scanner sc = new Scanner(System.in);
+		String fileScanner = sc.next();
+		
+		try {
+			if(Files.deleteIfExists(Paths.get("C://lockedMe//" + fileScanner))) {
+				System.out.println("File deleted successfully!");
+			}else {
+				System.out.println("File not found!");
+			}
+		} 
+        catch(IOException e) 
+        { 
+            System.out.println("Invalid permissions."); 
+        } 
+          
+        
+
+	}
+	
 	public static void main(String[] args) {
 		addFile();
+		deleteFile();
 	}
 }
