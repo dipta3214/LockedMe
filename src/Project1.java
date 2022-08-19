@@ -21,7 +21,7 @@ public class Project1 {
 	
 	public static void primaryOperations() {
 		System.out.println("Which operation you want to choose? ");
-		System.out.println("======================================================================================");
+		System.out.println("===================================================");
 		System.out.println(" 1. Show files in an ascending order \n 2. Business-level Operations \n 3. Close the application \n ");
 		
 		try {
@@ -47,7 +47,7 @@ public class Project1 {
 	}
 	
 	public static void showFiles() {
-		File folder = new File("C://lockedMe");
+		File folder = new File("C://lockedMeAbidur");
 		if(folder.exists() == false) {
 			folder.mkdir();
 		}
@@ -74,7 +74,7 @@ public class Project1 {
 	public static void businessOperations() {
 		
 		System.out.println("Which operation you want to choose? ");
-		System.out.println("======================================================================================");
+		System.out.println("===================================================");
 		System.out.println(" 1. Create a new File \n 2. Delete a file \n 3. Search for a file \n 4. Go back to main menu");
 		
 		
@@ -102,14 +102,14 @@ public class Project1 {
 	
 	public static void addFile()  {
 		
-		File folder = new File("C://lockedMe");
+		File folder = new File("C://lockedMeAbidur");
 		folder.mkdir();
 		
 		System.out.println("Enter file name: ");
 		Scanner sc = new Scanner(System.in);
 		String fileScanner = sc.next();
 		
-		File fileName = new File("C://lockedMe//" + fileScanner);
+		File fileName = new File("C://lockedMeAbidur//" + fileScanner);
 		
 		try {
 			if(fileName.createNewFile()) {
@@ -119,7 +119,7 @@ public class Project1 {
 			}
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			System.out.println("Operation not allowed\n");
 		}
 		businessOperations();
 	}
@@ -130,7 +130,7 @@ public class Project1 {
 		String fileScanner = sc.next();
 		
 		try {
-			if(Files.deleteIfExists(Paths.get("C://lockedMe//" + fileScanner))) {
+			if(Files.deleteIfExists(Paths.get("C://lockedMeAbidur//" + fileScanner))) {
 				System.out.println("File deleted successfully! \n");
 			}else {
 				System.out.println("File not found! \n");
@@ -148,9 +148,9 @@ public class Project1 {
 		Scanner sc = new Scanner(System.in);
 		String fileScanner = sc.next();
 		
-		File file = new File("C://lockedMe//" + fileScanner);
+		File file = new File("C://lockedMeAbidur//" + fileScanner);
 		
-		if(Files.exists(Paths.get("C://lockedMe//" + fileScanner)) == true) {
+		if(Files.exists(Paths.get("C://lockedMeAbidur//" + fileScanner)) == true) {
 			System.out.println("Found " + fileScanner + "\nPath to file: " + file.getAbsolutePath() + "\n");
 		}else {
 			System.out.println("File not found \n");
